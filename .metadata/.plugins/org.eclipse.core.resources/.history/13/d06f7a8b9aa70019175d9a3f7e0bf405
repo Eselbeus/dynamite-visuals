@@ -1,0 +1,29 @@
+package dynamite;
+
+import java.awt.Graphics;
+import java.awt.Color;
+import javax.swing.JFrame;
+
+public class Dynamite extends JFrame {
+	
+	public Dynamite () {
+		setSize(1280, 720);
+		setVisible(true);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+	}
+	
+	int x1 = 0;
+	int x2 = 500;
+	int y1 = 100;
+	int y2 = 200;
+	
+	public void paint(Graphics g) {
+		g.drawLine(x1, y1, x2, y2);
+	}
+	
+	public static void main(String[] args) {
+		
+		Dynamite d = new Dynamite();
+	}
+
+}

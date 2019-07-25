@@ -1,0 +1,69 @@
+package dynamite;
+
+import java.awt.Graphics;
+import java.awt.Color;
+//import java.awt.Dimension;
+//import java.awt.Toolkit;
+import javax.swing.*;
+//import javax.swing.JFrame;
+//import javax.swing.JPanel;
+
+public class Dynamite extends JFrame {
+	
+	JPanel jpan = new JPanel();
+	byte backgroundR = 111, backgroundG = 0, backgroundB = 0;
+	
+	public Dynamite () {
+		this.setSize(1280, 720);
+		this.setVisible(true);
+		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		this.setResizable(false);
+		this.getContentPane().setBackground(new Color(backgroundR, backgroundG, backgroundB));
+		
+		
+//		JPanel jpan = new JPanel();
+//		
+		jpan.setBackground(new Color(111, 0, 0));
+		this.add(jpan);
+		
+		
+	}
+	
+	
+	
+	int x1 = 0;
+	int x2 = 500;
+	int y1 = 100;
+	int y2 = 500;
+	
+	public void paint(Graphics g) {
+//		g.setColor(Color.black);
+//		g.setBackground(Color.black);
+//		jpan.setBackground(Color.BLACK);
+		
+		super.paint(g);
+		g.setColor(Color.green);
+		g.drawLine(x1, y1, x2, y2);
+		x1++;
+		backgroundG++;
+		repaint();
+	
+	}
+	
+	public static void main(String[] args) {
+		
+		Dynamite j = new Dynamite();
+//		JFrame j = new JFrame();
+		j.setSize(1280, 720);
+		j.setVisible(true);
+		j.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		j.setResizable(false);
+		j.getContentPane().setBackground(new Color(111, 0, 0));
+//		JPanel jpan = new JPanel();
+//		
+//		jpan.setBackground(Color.BLACK);
+//		d.add(jpan);
+		
+	}
+
+}

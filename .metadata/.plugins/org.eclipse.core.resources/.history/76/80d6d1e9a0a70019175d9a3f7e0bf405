@@ -1,0 +1,37 @@
+package dynamite;
+
+import java.awt.Graphics;
+import java.awt.Color;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+public class Dynamite extends JFrame {
+	
+	JPanel jp = new JPanel();
+	
+	public Dynamite () {
+		setSize(1280, 720);
+		setVisible(true);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setResizable(false);
+		
+		jp.setBackground(Color.orange);
+		add(jp);
+	}
+	
+	int x1 = 0;
+	int x2 = 500;
+	int y1 = 100;
+	int y2 = 200;
+	
+	public void paint(Graphics g) {
+		g.setColor(Color.green);
+		g.drawLine(x1, y1, x2, y2);
+	}
+	
+	public static void main(String[] args) {
+		
+		Dynamite d = new Dynamite();
+	}
+
+}
