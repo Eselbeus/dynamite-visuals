@@ -74,14 +74,12 @@ class MyPanel extends JPanel implements ActionListener {
         	g.fillOval(x1, 70, 5, 5);
         }
         
+//        JLabel jl = new JLabel("Throw me into fire");
+//        JLabel jk = new JLabel("It's better than the sea");
         if (x1 == 200) {
-        	jl.setText("It's better than the sea");
-    	}
-        if (x1 == 400) {
-        	jl.setText("Hold on tight I'm dynamite");
-    	}
-        if (x1 == 600) {
-        	jl.setText("I'll make you history");
+        	jl.setText("hi");
+//    		this.add(jk);
+    		this.revalidate();
     	}
     	this.add(jl);
         tm.start();
@@ -102,6 +100,17 @@ class MyPanel extends JPanel implements ActionListener {
 				backgroundRswitch = true;
 			}
 		}
+		
+//		JLabel jl = new JLabel("Throw me into fire");
+//        JLabel jk = new JLabel("It's better than the sea");
+        if (x1 == 200) {
+//        	jl.setText("hi");
+//    		this.add(jk);
+//    		this.revalidate();
+//        	this.add(jl);
+//        	revalidate();
+    	}
+//    	this.add(jl);
 		repaint();
 	}
 }

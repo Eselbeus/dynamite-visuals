@@ -74,7 +74,7 @@ class MyPanel extends JPanel implements ActionListener {
         	g.fillOval(x1, 70, 5, 5);
         }
         
-        if (x1 == 200) {
+        if (x1 >= 200) {
         	jl.setText("It's better than the sea");
     	}
         if (x1 == 400) {

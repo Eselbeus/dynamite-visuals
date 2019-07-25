@@ -44,8 +44,6 @@ class MyPanel extends JPanel implements ActionListener {
 	int x1 = 0, x2 = 500, y1 = 100, y2 = 500;
 	boolean backgroundRswitch = true;
 	Timer tm = new Timer(10, this);
-	JLabel jl = new JLabel("Throw me into fire");
-    JLabel jk = new JLabel("It's better than the sea");
 	
 
     public MyPanel() {
@@ -74,16 +72,14 @@ class MyPanel extends JPanel implements ActionListener {
         	g.fillOval(x1, 70, 5, 5);
         }
         
-        if (x1 == 200) {
-        	jl.setText("It's better than the sea");
-    	}
-        if (x1 == 400) {
-        	jl.setText("Hold on tight I'm dynamite");
-    	}
-        if (x1 == 600) {
-        	jl.setText("I'll make you history");
-    	}
-    	this.add(jl);
+//        JLabel jl = new JLabel("Throw me into fire");
+//        JLabel jk = new JLabel("It's better than the sea");
+//        if (x1 == 200) {
+//        	jl.setText("hi");
+//    		this.add(jk);
+//    		this.revalidate();
+//    	}
+//    	this.add(jl);
         tm.start();
     }  
     
@@ -102,6 +98,16 @@ class MyPanel extends JPanel implements ActionListener {
 				backgroundRswitch = true;
 			}
 		}
+		
+		JLabel jl = new JLabel("Throw me into fire");
+        JLabel jk = new JLabel("It's better than the sea");
+        if (x1 == 200) {
+//        	jl.setText("hi");
+//    		this.add(jk);
+//    		this.revalidate();
+        	this.add(jl);
+    	}
+//    	this.add(jl);
 		repaint();
 	}
 }
