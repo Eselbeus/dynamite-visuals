@@ -49,7 +49,7 @@ class MyPanel extends JPanel implements ActionListener {
 	Timer tm = new Timer(12, this);
 	JLabel jl = new JLabel("Throw me into fire");
 	int varyingWidth = 1280, varyingHeight = 720;
-	int twoMeasures = 199;
+	int twoMeasures = 234;
 	int rectWidth = 100, rectHeight = 100, rectX = 200, rectY = 200;
 	int radians = 0;
 	
@@ -75,38 +75,38 @@ class MyPanel extends JPanel implements ActionListener {
         	varyingWidth = 1280;
         	varyingHeight = 720;
         }
-        if (x1 == twoMeasures) {
+        if (x1 == twoMeasures * 2) {
         	jl.setText("It's better than the sea");
     	}
-        if (x1 == twoMeasures * 2) {
+        if (x1 == twoMeasures * 4) {
         	jl.setText("Hold on tight I'm dynamite");
     	}
-        if (x1 == twoMeasures * 3) {
+        if (x1 == twoMeasures * 6) {
         	jl.setText("...I'll make you history");
     	}
-        if (x1 >= twoMeasures * 5 && x1 < twoMeasures * 27) {
+        if (x1 >= twoMeasures * 10 && x1 < twoMeasures * 46) {
         	jl.setText("");
 
         	varyingWidth -= 2;
         	varyingHeight--;
         }
         
-        if (x1 == twoMeasures * 27) {
+        if (x1 == twoMeasures * 46) {
         	jl.setText("Throw me into fire");
         	varyingWidth = 1280;
         	varyingHeight = 720;
         }
-        if (x1 == twoMeasures * 28) {
+        if (x1 == twoMeasures * 48) {
         	jl.setText("It's better than the sea");
         }
-        if (x1 == twoMeasures * 29) {
+        if (x1 == twoMeasures * 50) {
         	jl.setText("Hold on tight I'm dynamite");
     	}
-        if (x1 == twoMeasures * 30) {
+        if (x1 == twoMeasures * 52) {
         	jl.setText("...I'll make you history");
     	}
         
-        if (x1 >= twoMeasures * 32 && x1 < twoMeasures * 44) {
+        if (x1 >= twoMeasures * 57 && x1 < twoMeasures * 92) {
         	jl.setText("");
         	g.setColor(new Color(0, 200, 0, 100));
         	Graphics2D g2dim = (Graphics2D)g;
@@ -151,7 +151,7 @@ class MyPanel extends JPanel implements ActionListener {
         }
         
         
-        if (x1 == twoMeasures * 44) {
+        if (x1 == twoMeasures * 92) {
         	jl.setText("Throw me into fire");
         	varyingWidth = 1280;
         	varyingHeight = 720;
@@ -163,7 +163,7 @@ class MyPanel extends JPanel implements ActionListener {
     }  
     
 	public void actionPerformed(ActionEvent e) {
-		x1++;
+		x1+=2;
 		y1 = y1 + 1;
 		if (rectMoveSwitchX == true) {
 			rectX++;
