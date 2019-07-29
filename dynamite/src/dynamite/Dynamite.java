@@ -1,6 +1,8 @@
 package dynamite;
 
 import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Rectangle;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
@@ -43,15 +45,16 @@ class MyPanel extends JPanel implements ActionListener {
 	
 	int backgroundR = 40, backgroundG = 0, backgroundB = 0;
 	int x1 = 0, x2 = 500, y1 = 100, y2 = 500;
-	boolean backgroundRswitch = true;
+	boolean backgroundRswitch = true, rectMoveSwitchX = false, rectMoveSwitchY = false, rectMoveSwitchNegX = false, rectMoveSwitchNegY = false;
 	Timer tm = new Timer(12, this);
 	JLabel jl = new JLabel("Throw me into fire");
 	int varyingWidth = 1280, varyingHeight = 720;
 	int twoMeasures = 199;
+	int rectWidth = 100, rectHeight = 100, rectX = 200, rectY = 200;
+	int radians = 0;
 	
 
     public MyPanel() {
-        setBorder(BorderFactory.createLineBorder(Color.black));
         setBackground(new Color(backgroundR, 0, 0));
     }
 
@@ -66,11 +69,8 @@ class MyPanel extends JPanel implements ActionListener {
         g.setColor(new Color(backgroundR, 0, 0));
         g.fillRect(0, 0, varyingWidth, varyingHeight);
         g.setColor(new Color(200, 200, 200));
-        g.fillOval(x1, 7, 5, 5);
+        g.fillOval(x1, -7, 5, 5);
         
-//        if (x1 >= 200) {
-//        	g.fillOval(x1, 70, 5, 5);
-//        }
         if (varyingWidth == 0) {
         	varyingWidth = 1280;
         	varyingHeight = 720;
@@ -84,30 +84,73 @@ class MyPanel extends JPanel implements ActionListener {
         if (x1 == twoMeasures * 3) {
         	jl.setText("...I'll make you history");
     	}
-        if (x1 >= twoMeasures * 5 && x1 < 1912) {
+        if (x1 >= twoMeasures * 5 && x1 < twoMeasures * 27) {
         	jl.setText("");
-//        	g.setColor(new Color(backgroundR, 0, 0, 100));
-//        	g.fillRect(0, 0, 1280, 720);
+
         	varyingWidth -= 2;
         	varyingHeight--;
         }
-        if (x1 >= 956) {
-        	
-        }
-        if (x1 == 1912) {
+        
+        if (x1 == twoMeasures * 27) {
         	jl.setText("Throw me into fire");
         	varyingWidth = 1280;
         	varyingHeight = 720;
         }
-        if (x1 == 1912 + twoMeasures * 2) {
+        if (x1 == twoMeasures * 28) {
         	jl.setText("It's better than the sea");
         }
-        if (x1 == 1912 + twoMeasures * 3) {
+        if (x1 == twoMeasures * 29) {
         	jl.setText("Hold on tight I'm dynamite");
     	}
-        if (x1 == 1912 + twoMeasures * 4) {
+        if (x1 == twoMeasures * 30) {
         	jl.setText("...I'll make you history");
     	}
+        
+        if (x1 >= twoMeasures * 32 && x1 < twoMeasures * 44) {
+        	jl.setText("");
+        	g.setColor(new Color(0, 200, 0, 100));
+        	Graphics2D g2dim = (Graphics2D)g;
+        	Rectangle rect2 = new Rectangle(rectX, rectY, rectWidth, rectHeight);
+        	g2dim.rotate(Math.toRadians(radians), rectX, rectY);
+        	g2dim.draw(rect2);
+            g2dim.fill(rect2);
+        	rectMoveSwitchX = true;
+        	varyingWidth -= 2;
+        	varyingHeight--;
+        }
+        
+        if (rectX >= 1000) {
+        	rectMoveSwitchX = false;
+        	rectMoveSwitchY = true;
+        	rectMoveSwitchNegX = false;
+        	rectMoveSwitchNegY = false;
+        }
+        if (rectY >= 500) {
+        	rectMoveSwitchY = false;
+        	rectMoveSwitchX = false;
+        	rectMoveSwitchNegX = true;
+        	rectMoveSwitchNegY = false;
+        }
+        if (rectX < 200) {
+        	rectMoveSwitchNegX = false;
+        	rectMoveSwitchX = false;
+        	rectMoveSwitchNegY = true;
+        	rectMoveSwitchY = false;
+        }
+        if (rectY < 200) {
+        	rectMoveSwitchX = true;
+        	rectMoveSwitchY = false;
+        	rectMoveSwitchNegX = false;
+        	rectMoveSwitchNegY = false;
+        }
+        
+        
+        if (x1 == twoMeasures * 44) {
+        	jl.setText("Throw me into fire");
+        	varyingWidth = 1280;
+        	varyingHeight = 720;
+        }
+        
         
     	this.add(jl);
         tm.start();
@@ -116,6 +159,26 @@ class MyPanel extends JPanel implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		x1++;
 		y1 = y1 + 1;
+		if (rectMoveSwitchX == true) {
+			rectX++;
+			radians++;
+		}
+		if (rectMoveSwitchY == true) {
+			rectY++;
+			radians++;
+		}
+		if (rectMoveSwitchNegX == true) {
+			rectX--;
+			radians++;
+		}
+		if (rectMoveSwitchNegY == true) {
+			rectY--;
+			radians++;
+		}
+//		if (rectMoveSwitchNegY == true) {
+//			rectY--;
+//			radians++;
+//		}
 		if (backgroundRswitch == true) {
 			backgroundR++;
 			if (backgroundR >= 250) {
