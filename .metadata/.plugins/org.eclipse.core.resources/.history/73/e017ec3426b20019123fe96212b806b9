@@ -114,11 +114,11 @@ class MyPanel extends JPanel implements ActionListener {
 //        	g2dim.rotate(Math.toRadians(radians), rectX, rectY);
 //        	g2dim.draw(rect2);
 //            g2dim.fill(rect2);
-            for (int i = 0; i < 350; i+=10) {
+            for (int i = 0; i < 20; i++) {
             	Rectangle rect3 = new Rectangle(rectX, rectY, rectWidth, rectHeight);
             	g2dim.rotate(Math.toRadians(radians + 1), rectX, rectY);
-            	g2dim.draw(rect3);
-                g2dim.fill(rect3);
+            	g2dim.draw(rect2);
+                g2dim.fill(rect2);
             }
         	rectMoveSwitchX = true;
         	varyingWidth -= 2;
