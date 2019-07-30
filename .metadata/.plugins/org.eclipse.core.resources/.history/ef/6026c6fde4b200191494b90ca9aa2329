@@ -180,7 +180,7 @@ class MyPanel extends JPanel implements ActionListener {
         	jl.setText("...make you history");
     	}
         
-        if (x1 >= twoMeasures * 108 + timeCorrection2 && x1 < twoMeasures * 115 + timeCorrection3) {
+        if (x1 >= twoMeasures * 108 + timeCorrection2 && x1 < twoMeasures * 116 + timeCorrection3) {
         	jl.setText("");
         	
         	if (x1 % (twoMeasures/2) == 0) {
@@ -190,7 +190,7 @@ class MyPanel extends JPanel implements ActionListener {
                 g2dim.fill(rect2);
     		}
         }
-        if (x1 >= twoMeasures * 115 + timeCorrection3 && x1 < twoMeasures * 135 + timeCorrection3) {
+        if (x1 >= twoMeasures * 116 + timeCorrection3 && x1 < twoMeasures * 134 + timeCorrection3) {
         	bridge = true;
         	if (newRed <= 5) {
 				newRedSwitch = false;
@@ -214,7 +214,7 @@ class MyPanel extends JPanel implements ActionListener {
                 g2dim.fill(rect3);
             }
         }
-        if (x1 >= twoMeasures * 135 + timeCorrection3 && x1 <= twoMeasures * 159 + timeCorrection3) {
+        if (x1 >= twoMeasures * 134 + timeCorrection3 && x1 <= twoMeasures * 159 + timeCorrection3) {
         	Graphics2D g2dim = (Graphics2D)g;
         	g.setColor(new Color(255, 255, 255));
         	Rectangle rect3 = new Rectangle(0, 0, 1280, 720);
@@ -247,7 +247,7 @@ class MyPanel extends JPanel implements ActionListener {
         	}
         	finalChorus = true;
         }
-        if (x1 >= twoMeasures * 159 + (timeCorrection3 * 2)) {
+        if (x1 >= twoMeasures * 159 + timeCorrection3) {
         	g.setColor(new Color(0, 0, 0));
             g.fillRect(0, 0, 1280, 720);
         }
