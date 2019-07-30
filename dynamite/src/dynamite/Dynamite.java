@@ -50,9 +50,14 @@ class MyPanel extends JPanel implements ActionListener {
 	JLabel jl = new JLabel("Throw me into fire");
 	int varyingWidth = 1280, varyingHeight = 720;
 	int twoMeasures = 234;
+	int timeCorrection = 80;
+	int timeCorrection2 = 0;
+	int timeCorrection3 = -40;
 	int rectWidth = 100, rectHeight = 100, rectX = 200, rectY = 200;
-	int radians = 0;
-	
+	int rectWidthBridge = 100, rectHeightBridge = 100, rectXBridge = 640, rectYBridge = 360;
+	int radians = 0, bridgeRadians = 0;
+	boolean bridge = false, newRedSwitch = false, finalChorus = false, finalSizeSwitch = false;
+	int newRed = 250;
 
     public MyPanel() {
         setBackground(new Color(backgroundR, 0, 0));
@@ -64,7 +69,7 @@ class MyPanel extends JPanel implements ActionListener {
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);  
-        jl.setFont(new Font("Serif", Font.ITALIC, 48));
+        jl.setFont(new Font("Serif", Font.ITALIC, 60));
         jl.setForeground(Color.GRAY);
         g.setColor(new Color(backgroundR, 0, 0));
         g.fillRect(0, 0, varyingWidth, varyingHeight);
@@ -79,10 +84,10 @@ class MyPanel extends JPanel implements ActionListener {
         	jl.setText("It's better than the sea");
     	}
         if (x1 == twoMeasures * 4) {
-        	jl.setText("Hold on tight I'm dynamite");
+        	jl.setText("Hold on tight I'm dynamite, I'll");
     	}
         if (x1 == twoMeasures * 6) {
-        	jl.setText("...I'll make you history");
+        	jl.setText("...make you history");
     	}
         if (x1 >= twoMeasures * 10 && x1 < twoMeasures * 46) {
         	jl.setText("");
@@ -91,29 +96,25 @@ class MyPanel extends JPanel implements ActionListener {
         	varyingHeight--;
         }
         
-        if (x1 == twoMeasures * 46) {
+        if (x1 == twoMeasures * 46 + timeCorrection) {
         	jl.setText("Throw me into fire");
         	varyingWidth = 1280;
         	varyingHeight = 720;
         }
-        if (x1 == twoMeasures * 48) {
+        if (x1 == twoMeasures * 48 + timeCorrection) {
         	jl.setText("It's better than the sea");
         }
-        if (x1 == twoMeasures * 50) {
-        	jl.setText("Hold on tight I'm dynamite");
+        if (x1 == twoMeasures * 50 + timeCorrection) {
+        	jl.setText("Hold on tight I'm dynamite, I'll");
     	}
-        if (x1 == twoMeasures * 52) {
-        	jl.setText("...I'll make you history");
+        if (x1 == twoMeasures * 52 + timeCorrection) {
+        	jl.setText("...make you history");
     	}
         
-        if (x1 >= twoMeasures * 57 && x1 < twoMeasures * 92) {
+        if (x1 >= twoMeasures * 57 + timeCorrection && x1 < (twoMeasures * 93) + timeCorrection2) {
         	jl.setText("");
         	g.setColor(new Color(0, 200, 0, 100));
         	Graphics2D g2dim = (Graphics2D)g;
-//        	Rectangle rect2 = new Rectangle(rectX, rectY, rectWidth, rectHeight);
-//        	g2dim.rotate(Math.toRadians(radians), rectX, rectY);
-//        	g2dim.draw(rect2);
-//            g2dim.fill(rect2);
             for (int i = 0; i < 350; i+=10) {
             	Rectangle rect3 = new Rectangle(rectX, rectY, rectWidth, rectHeight);
             	g2dim.rotate(Math.toRadians(radians + 1), rectX, rectY);
@@ -151,10 +152,104 @@ class MyPanel extends JPanel implements ActionListener {
         }
         
         
-        if (x1 == twoMeasures * 92) {
+        if (x1 == twoMeasures * 93 + timeCorrection2) {
         	jl.setText("Throw me into fire");
         	varyingWidth = 1280;
         	varyingHeight = 720;
+        }
+        if (x1 == twoMeasures * 95 + timeCorrection2) {
+        	jl.setText("It's better than the sea");
+        }
+        if (x1 == twoMeasures * 97 + timeCorrection2) {
+        	jl.setText("Hold on tight I'm dynamite, I'll");
+    	}
+        if (x1 == twoMeasures * 99 + timeCorrection2) {
+        	jl.setText("...make you history");
+    	}
+        
+        if (x1 == twoMeasures * 101 + timeCorrection3) {
+        	jl.setText("Throw me into fire");
+        }
+        if (x1 == twoMeasures * 103 + timeCorrection3) {
+        	jl.setText("It's better than the sea");
+        }
+        if (x1 == twoMeasures * 105 + timeCorrection3) {
+        	jl.setText("Hold on tight I'm dynamite, I'll");
+    	}
+        if (x1 == twoMeasures * 107 + timeCorrection3) {
+        	jl.setText("...make you history");
+    	}
+        
+        if (x1 >= twoMeasures * 108 + timeCorrection2 && x1 < twoMeasures * 116 + timeCorrection3) {
+        	jl.setText("");
+        	
+        	if (x1 % (twoMeasures/2) == 0) {
+    			Graphics2D g2dim = (Graphics2D)g;
+            	Rectangle rect2 = new Rectangle(0, 0, 1280, 720);
+            	g2dim.draw(rect2);
+                g2dim.fill(rect2);
+    		}
+        }
+        if (x1 >= twoMeasures * 116 + timeCorrection3 && x1 < twoMeasures * 134 + timeCorrection3) {
+        	bridge = true;
+        	if (newRed <= 5) {
+				newRedSwitch = false;
+			}
+        	if (newRed >= 250) {
+        		newRedSwitch = true;
+        	}
+        	Graphics2D g2dim = (Graphics2D)g;
+        	g.setColor(new Color(200, 200, 0, 50));
+        	for (int i = 0; i < 350; i+=10) {
+            	Rectangle rect3 = new Rectangle(rectXBridge, rectYBridge, rectWidthBridge, rectHeightBridge);
+            	g2dim.rotate(Math.toRadians(bridgeRadians + i), rectXBridge, rectYBridge);
+            	g2dim.draw(rect3);
+                g2dim.fill(rect3);
+            }
+        	g.setColor(new Color(newRed, 240, 255, 100));
+        	for (int i = 0; i < 350; i+=10) {
+            	Rectangle rect3 = new Rectangle(rectXBridge, rectYBridge, rectWidthBridge - 50, rectHeightBridge - 50);
+            	g2dim.rotate(Math.toRadians(bridgeRadians + i), rectXBridge, rectYBridge);
+            	g2dim.draw(rect3);
+                g2dim.fill(rect3);
+            }
+        }
+        if (x1 >= twoMeasures * 134 + timeCorrection3 && x1 <= twoMeasures * 159 + timeCorrection3) {
+        	Graphics2D g2dim = (Graphics2D)g;
+        	g.setColor(new Color(255, 255, 255));
+        	Rectangle rect3 = new Rectangle(0, 0, 1280, 720);
+
+        	g2dim.draw(rect3);
+            g2dim.fill(rect3);
+            g.setColor(new Color(200, 240, 0, 100));
+            for (int i = 0; i < 350; i+=10) {
+            	Rectangle rect4 = new Rectangle(rectXBridge, rectYBridge, rectWidthBridge, rectHeightBridge);
+            	g2dim.rotate(Math.toRadians(bridgeRadians + i), rectXBridge, rectYBridge);
+            	g2dim.draw(rect4);
+                g2dim.fill(rect4);
+            }
+        	g.setColor(new Color(255, 240, 90, 120));
+        	for (int i = 0; i < 350; i+=10) {
+            	Rectangle rect5 = new Rectangle(rectXBridge, rectYBridge, rectWidthBridge - 50, rectHeightBridge - 50);
+            	g2dim.rotate(Math.toRadians(bridgeRadians + i), rectXBridge, rectYBridge);
+            	g2dim.draw(rect5);
+                g2dim.fill(rect5);
+            }
+        	if (x1 % 20 == 0) {
+        		g.setColor(new Color(255, 0, 0, 150));
+        		g.fillOval(640, 360, 400, 400);
+        		g.setColor(new Color(0, 255, 0, 150));
+        		g.fillOval(640, 360, 80, 80);
+    		}
+        	if (x1 % 16 == 0 ) {
+        		g.setColor(new Color(255, 255, 0, 150));
+        		g.fillOval(640, 360, 800, 800);
+        	}
+        	finalChorus = true;
+        }
+        if (x1 >= twoMeasures * 159 + timeCorrection3) {
+        	g.setColor(new Color(0, 0, 0));
+            g.fillRect(0, 0, 1280, 720);
         }
         
         
@@ -195,6 +290,37 @@ class MyPanel extends JPanel implements ActionListener {
 				backgroundRswitch = true;
 			}
 		}
+		
+		if (bridge == true) {
+			bridgeRadians++;
+			if (rectWidthBridge <= 400) {
+			rectWidthBridge++;
+			rectHeightBridge++;
+			newRedSwitch = false;
+			}
+			else {
+				newRedSwitch = true;
+			}
+		}
+		
+		if (finalChorus == true && finalSizeSwitch == true) {
+			bridgeRadians++;
+			rectWidthBridge++;
+			rectHeightBridge++;
+			if (rectWidthBridge >= 200) {
+				finalSizeSwitch = false;
+			}
+		}
+		else if (finalChorus == true && finalSizeSwitch == false) {
+			bridgeRadians++;
+			rectWidthBridge--;
+			rectHeightBridge--;
+			if (rectWidthBridge <= 50) {
+				finalSizeSwitch = true;
+			}
+		}
+		
+
 		repaint();
 	}
 }
