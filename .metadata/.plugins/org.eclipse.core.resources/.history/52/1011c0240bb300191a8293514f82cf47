@@ -46,11 +46,11 @@ class MyPanel extends JPanel implements ActionListener {
 	int backgroundR = 40, backgroundG = 0, backgroundB = 0;
 	int x1 = 0, x2 = 500, y1 = 100, y2 = 500;
 	boolean backgroundRswitch = true, rectMoveSwitchX = false, rectMoveSwitchY = false, rectMoveSwitchNegX = false, rectMoveSwitchNegY = false;
-	Timer tm = new Timer(36, this);
+	Timer tm = new Timer(35, this);
 	JLabel jl = new JLabel("Throw me into fire");
 	int varyingWidth = 1280, varyingHeight = 720;
-	int twoMeasures = 76;//234 78
-	int timeCorrection = 150, timeCorrection2 = -4, timeCorrection3 = 0;
+	int twoMeasures = 78;//234
+	int timeCorrection = 80, timeCorrection2 = 0, timeCorrection3 = -40;
 	int rectWidth = 100, rectHeight = 100, rectX = 200, rectY = 200;
 	int rectWidthBridge = 100, rectHeightBridge = 100, rectXBridge = 640, rectYBridge = 360;
 	int radians = 0, bridgeRadians = 0;
@@ -88,30 +88,29 @@ class MyPanel extends JPanel implements ActionListener {
         if (x1 == twoMeasures * 6) {
         	jl.setText("...make you history");
     	}
-        if (x1 >= twoMeasures * 10 && x1 < twoMeasures * 48) {
+        if (x1 >= twoMeasures * 10 && x1 < twoMeasures * 46) {
         	jl.setText("");
 
         	varyingWidth -= 2;
         	varyingHeight--;
         }
         
-        //chorus 1  -2 2b early
-        if (x1 == twoMeasures * 48 + timeCorrection) {
+        if (x1 == twoMeasures * 46 + timeCorrection) {
         	jl.setText("Throw me into fire");
         	varyingWidth = 1280;
         	varyingHeight = 720;
         }
-        if (x1 == twoMeasures * 50 + timeCorrection) {
+        if (x1 == twoMeasures * 48 + timeCorrection) {
         	jl.setText("It's better than the sea");
         }
-        if (x1 == twoMeasures * 52 + timeCorrection) {
+        if (x1 == twoMeasures * 50 + timeCorrection) {
         	jl.setText("Hold on tight I'm dynamite, I'll");
     	}
-        if (x1 == twoMeasures * 54 + timeCorrection) {
+        if (x1 == twoMeasures * 52 + timeCorrection) {
         	jl.setText("...make you history");
     	}
         
-        if (x1 >= twoMeasures * 59 + timeCorrection && x1 < (twoMeasures * 100) + timeCorrection2) {
+        if (x1 >= twoMeasures * 57 + timeCorrection && x1 < (twoMeasures * 93) + timeCorrection2) {
         	jl.setText("");
         	g.setColor(new Color(0, 200, 0, 100));
 
@@ -151,36 +150,36 @@ class MyPanel extends JPanel implements ActionListener {
         	rectMoveSwitchNegY = false;
         }
         
-        //chorus2 -8 1m late
-        if (x1 == twoMeasures * 100 + timeCorrection2) {
+        
+        if (x1 == twoMeasures * 93 + timeCorrection2) {
         	jl.setText("Throw me into fire");
         	varyingWidth = 1280;
         	varyingHeight = 720;
         }
-        if (x1 == twoMeasures * 102 + timeCorrection2) {
+        if (x1 == twoMeasures * 95 + timeCorrection2) {
         	jl.setText("It's better than the sea");
         }
-        if (x1 == twoMeasures * 104 + timeCorrection2) {
+        if (x1 == twoMeasures * 97 + timeCorrection2) {
         	jl.setText("Hold on tight I'm dynamite, I'll");
     	}
-        if (x1 == twoMeasures * 106 + timeCorrection2) {
+        if (x1 == twoMeasures * 99 + timeCorrection2) {
         	jl.setText("...make you history");
     	}
         
-        if (x1 == twoMeasures * 108 + timeCorrection3) {
+        if (x1 == twoMeasures * 101 + timeCorrection3) {
         	jl.setText("Throw me into fire");
         }
-        if (x1 == twoMeasures * 110 + timeCorrection3) {
+        if (x1 == twoMeasures * 103 + timeCorrection3) {
         	jl.setText("It's better than the sea");
         }
-        if (x1 == twoMeasures * 112 + timeCorrection3) {
+        if (x1 == twoMeasures * 105 + timeCorrection3) {
         	jl.setText("Hold on tight I'm dynamite, I'll");
     	}
-        if (x1 == twoMeasures * 114 + timeCorrection3) {
+        if (x1 == twoMeasures * 107 + timeCorrection3) {
         	jl.setText("...make you history");
     	}
         
-        if (x1 >= twoMeasures * 115 + timeCorrection2 && x1 < twoMeasures * 124 + timeCorrection3) {
+        if (x1 >= twoMeasures * 108 + timeCorrection2 && x1 < twoMeasures * 115 + timeCorrection3) {
         	jl.setText("");
         	
         	if (x1 % (twoMeasures/2) == 0) {
@@ -190,9 +189,7 @@ class MyPanel extends JPanel implements ActionListener {
                 g2dim.fill(rect2);
     		}
         }
-        
-        //bridge  1mlate
-        if (x1 >= twoMeasures * 124 + timeCorrection3 && x1 < twoMeasures * 144 + timeCorrection3) {
+        if (x1 >= twoMeasures * 115 + timeCorrection3 && x1 < twoMeasures * 135 + timeCorrection3) {
         	bridge = true;
         	if (newRed <= 5) {
 				newRedSwitch = false;
@@ -217,7 +214,7 @@ class MyPanel extends JPanel implements ActionListener {
                 g2dim.fill(rect3);
             }
         }
-        if (x1 >= twoMeasures * 144 + timeCorrection2 && x1 <= twoMeasures * 170 + timeCorrection2) {
+        if (x1 >= twoMeasures * 135 + timeCorrection3 && x1 <= twoMeasures * 159 + timeCorrection3) {
 
         	g.setColor(new Color(255, 255, 255));
         	Rectangle rect3 = new Rectangle(0, 0, 1280, 720);
@@ -250,9 +247,7 @@ class MyPanel extends JPanel implements ActionListener {
         	}
         	finalChorus = true;
         }
-        
-        //end 4m ahead 1m late
-        if (x1 >= twoMeasures * 170 + (timeCorrection3 * 2)) {
+        if (x1 >= twoMeasures * 159 + (timeCorrection3 * 2)) {
         	g.setColor(new Color(0, 0, 0));
             g.fillRect(0, 0, 1280, 720);
         }
@@ -265,31 +260,31 @@ class MyPanel extends JPanel implements ActionListener {
 		x1+=2;
 		y1 = y1 + 1;
 		if (rectMoveSwitchX == true) {
-			rectX+=3;
+			rectX++;
 			radians++;
 		}
 		if (rectMoveSwitchY == true) {
-			rectY+=3;
+			rectY++;
 			radians++;
 		}
 		if (rectMoveSwitchNegX == true) {
-			rectX-=3;
+			rectX--;
 			radians++;
 		}
 		if (rectMoveSwitchNegY == true) {
-			rectY-=3;
+			rectY--;
 			radians++;
 		}
 
 		
 		if (backgroundRswitch == true) {
-			backgroundR+=3;
+			backgroundR++;
 			if (backgroundR >= 250) {
 				backgroundRswitch = false;
 			}
 		}
 		else {
-			backgroundR-=3;
+			backgroundR--;
 			if (backgroundR <= 10) {
 				backgroundRswitch = true;
 			}

@@ -50,7 +50,7 @@ class MyPanel extends JPanel implements ActionListener {
 	JLabel jl = new JLabel("Throw me into fire");
 	int varyingWidth = 1280, varyingHeight = 720;
 	int twoMeasures = 76;//234 78
-	int timeCorrection = 150, timeCorrection2 = -4, timeCorrection3 = 0;
+	int timeCorrection = 100, timeCorrection2 = -30, timeCorrection3 = -40;
 	int rectWidth = 100, rectHeight = 100, rectX = 200, rectY = 200;
 	int rectWidthBridge = 100, rectHeightBridge = 100, rectXBridge = 640, rectYBridge = 360;
 	int radians = 0, bridgeRadians = 0;
@@ -217,7 +217,7 @@ class MyPanel extends JPanel implements ActionListener {
                 g2dim.fill(rect3);
             }
         }
-        if (x1 >= twoMeasures * 144 + timeCorrection2 && x1 <= twoMeasures * 170 + timeCorrection2) {
+        if (x1 >= twoMeasures * 144 + timeCorrection3 && x1 <= twoMeasures * 170 + timeCorrection3) {
 
         	g.setColor(new Color(255, 255, 255));
         	Rectangle rect3 = new Rectangle(0, 0, 1280, 720);
@@ -265,31 +265,31 @@ class MyPanel extends JPanel implements ActionListener {
 		x1+=2;
 		y1 = y1 + 1;
 		if (rectMoveSwitchX == true) {
-			rectX+=3;
+			rectX++;
 			radians++;
 		}
 		if (rectMoveSwitchY == true) {
-			rectY+=3;
+			rectY++;
 			radians++;
 		}
 		if (rectMoveSwitchNegX == true) {
-			rectX-=3;
+			rectX--;
 			radians++;
 		}
 		if (rectMoveSwitchNegY == true) {
-			rectY-=3;
+			rectY--;
 			radians++;
 		}
 
 		
 		if (backgroundRswitch == true) {
-			backgroundR+=3;
+			backgroundR++;
 			if (backgroundR >= 250) {
 				backgroundRswitch = false;
 			}
 		}
 		else {
-			backgroundR-=3;
+			backgroundR--;
 			if (backgroundR <= 10) {
 				backgroundRswitch = true;
 			}

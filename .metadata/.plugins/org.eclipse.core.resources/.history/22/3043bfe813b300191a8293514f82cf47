@@ -50,7 +50,7 @@ class MyPanel extends JPanel implements ActionListener {
 	JLabel jl = new JLabel("Throw me into fire");
 	int varyingWidth = 1280, varyingHeight = 720;
 	int twoMeasures = 76;//234 78
-	int timeCorrection = 150, timeCorrection2 = -4, timeCorrection3 = 0;
+	int timeCorrection = 30, timeCorrection2 = -10, timeCorrection3 = 0;
 	int rectWidth = 100, rectHeight = 100, rectX = 200, rectY = 200;
 	int rectWidthBridge = 100, rectHeightBridge = 100, rectXBridge = 640, rectYBridge = 360;
 	int radians = 0, bridgeRadians = 0;
@@ -91,8 +91,8 @@ class MyPanel extends JPanel implements ActionListener {
         if (x1 >= twoMeasures * 10 && x1 < twoMeasures * 48) {
         	jl.setText("");
 
-        	varyingWidth -= 2;
-        	varyingHeight--;
+        	varyingWidth -= 6;
+        	varyingHeight-= 2;
         }
         
         //chorus 1  -2 2b early
@@ -265,19 +265,19 @@ class MyPanel extends JPanel implements ActionListener {
 		x1+=2;
 		y1 = y1 + 1;
 		if (rectMoveSwitchX == true) {
-			rectX+=3;
+			rectX++;
 			radians++;
 		}
 		if (rectMoveSwitchY == true) {
-			rectY+=3;
+			rectY++;
 			radians++;
 		}
 		if (rectMoveSwitchNegX == true) {
-			rectX-=3;
+			rectX--;
 			radians++;
 		}
 		if (rectMoveSwitchNegY == true) {
-			rectY-=3;
+			rectY--;
 			radians++;
 		}
 

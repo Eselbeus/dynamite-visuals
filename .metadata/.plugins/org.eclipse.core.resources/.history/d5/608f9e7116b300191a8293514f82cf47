@@ -50,7 +50,7 @@ class MyPanel extends JPanel implements ActionListener {
 	JLabel jl = new JLabel("Throw me into fire");
 	int varyingWidth = 1280, varyingHeight = 720;
 	int twoMeasures = 76;//234 78
-	int timeCorrection = 150, timeCorrection2 = -4, timeCorrection3 = 0;
+	int timeCorrection = 40, timeCorrection2 = -10, timeCorrection3 = 0;
 	int rectWidth = 100, rectHeight = 100, rectX = 200, rectY = 200;
 	int rectWidthBridge = 100, rectHeightBridge = 100, rectXBridge = 640, rectYBridge = 360;
 	int radians = 0, bridgeRadians = 0;
