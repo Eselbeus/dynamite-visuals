@@ -50,9 +50,7 @@ class MyPanel extends JPanel implements ActionListener {
 	JLabel jl = new JLabel("Throw me into fire");
 	int varyingWidth = 1280, varyingHeight = 720;
 	int twoMeasures = 234;
-	int timeCorrection = 80;
-	int timeCorrection2 = 0;
-	int timeCorrection3 = -40;
+	int timeCorrection = 80, timeCorrection2 = 0, timeCorrection3 = -40;
 	int rectWidth = 100, rectHeight = 100, rectX = 200, rectY = 200;
 	int rectWidthBridge = 100, rectHeightBridge = 100, rectXBridge = 640, rectYBridge = 360;
 	int radians = 0, bridgeRadians = 0;
@@ -75,6 +73,7 @@ class MyPanel extends JPanel implements ActionListener {
         g.fillRect(0, 0, varyingWidth, varyingHeight);
         g.setColor(new Color(200, 200, 200));
         g.fillOval(x1, -7, 5, 5);
+        Graphics2D g2dim = (Graphics2D)g;
         
         if (varyingWidth == 0) {
         	varyingWidth = 1280;
@@ -114,7 +113,7 @@ class MyPanel extends JPanel implements ActionListener {
         if (x1 >= twoMeasures * 57 + timeCorrection && x1 < (twoMeasures * 93) + timeCorrection2) {
         	jl.setText("");
         	g.setColor(new Color(0, 200, 0, 100));
-        	Graphics2D g2dim = (Graphics2D)g;
+
             for (int i = 0; i < 350; i+=10) {
             	Rectangle rect3 = new Rectangle(rectX, rectY, rectWidth, rectHeight);
             	g2dim.rotate(Math.toRadians(radians + 1), rectX, rectY);
@@ -184,7 +183,7 @@ class MyPanel extends JPanel implements ActionListener {
         	jl.setText("");
         	
         	if (x1 % (twoMeasures/2) == 0) {
-    			Graphics2D g2dim = (Graphics2D)g;
+
             	Rectangle rect2 = new Rectangle(0, 0, 1280, 720);
             	g2dim.draw(rect2);
                 g2dim.fill(rect2);
@@ -198,8 +197,9 @@ class MyPanel extends JPanel implements ActionListener {
         	if (newRed >= 250) {
         		newRedSwitch = true;
         	}
-        	Graphics2D g2dim = (Graphics2D)g;
+
         	g.setColor(new Color(200, 200, 0, 50));
+        	
         	for (int i = 0; i < 350; i+=10) {
             	Rectangle rect3 = new Rectangle(rectXBridge, rectYBridge, rectWidthBridge, rectHeightBridge);
             	g2dim.rotate(Math.toRadians(bridgeRadians + i), rectXBridge, rectYBridge);
@@ -215,13 +215,13 @@ class MyPanel extends JPanel implements ActionListener {
             }
         }
         if (x1 >= twoMeasures * 135 + timeCorrection3 && x1 <= twoMeasures * 159 + timeCorrection3) {
-        	Graphics2D g2dim = (Graphics2D)g;
+
         	g.setColor(new Color(255, 255, 255));
         	Rectangle rect3 = new Rectangle(0, 0, 1280, 720);
-
         	g2dim.draw(rect3);
             g2dim.fill(rect3);
             g.setColor(new Color(200, 240, 0, 100));
+            
             for (int i = 0; i < 350; i+=10) {
             	Rectangle rect4 = new Rectangle(rectXBridge, rectYBridge, rectWidthBridge, rectHeightBridge);
             	g2dim.rotate(Math.toRadians(bridgeRadians + i), rectXBridge, rectYBridge);
@@ -251,8 +251,7 @@ class MyPanel extends JPanel implements ActionListener {
         	g.setColor(new Color(0, 0, 0));
             g.fillRect(0, 0, 1280, 720);
         }
-        
-        
+
     	this.add(jl);
         tm.start();
     }  
@@ -320,7 +319,6 @@ class MyPanel extends JPanel implements ActionListener {
 			}
 		}
 		
-
 		repaint();
 	}
 }
