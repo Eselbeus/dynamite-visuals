@@ -49,7 +49,7 @@ class MyPanel extends JPanel implements ActionListener {
 	Timer tm = new Timer(36, this);
 	JLabel jl = new JLabel("Throw me into fire");
 	int varyingWidth = 1280, varyingHeight = 720;
-	int twoMeasures = 76;
+	int twoMeasures = 76;//234 78
 	int timeCorrection = 150, timeCorrection2 = -4, timeCorrection3 = 0;
 	int rectWidth = 100, rectHeight = 100, rectX = 200, rectY = 200;
 	int rectWidthBridge = 100, rectHeightBridge = 100, rectXBridge = 640, rectYBridge = 360;
